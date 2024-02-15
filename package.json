@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx tsc ./Estructuras-De-Datos/Queue/queue.ts",
-    "dev": "node ./Estructuras-De-Datos/Queue/queue.js"
+    "start": "npx tsc ./Estructuras-De-Datos/Linkedlist/linkedlist.ts",
+    "dev": "node ./Estructuras-De-Datos/Linkedlist/linkedlist.js"
   },
   "keywords": [],
   "author": "",
