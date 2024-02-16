@@ -1,0 +1,26 @@
+{
+  "name": "algoritmos-y-estructura-de-datos-",
+  "version": "1.0.0",
+  "description": "¡Bienvenido al repositorio de algoritmos y estructuras de datos!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsc ./Estructuras-De-Datos/Linkedlist/linkedlist.ts",
+    "dev": "node ./Estructuras-De-Datos/Linkedlist/linkedlist.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "standard": "^17.1.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.0.1"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
