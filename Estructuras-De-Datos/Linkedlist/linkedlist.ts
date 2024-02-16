@@ -34,28 +34,74 @@ class LinkedList {
     this.index++;
   }
   public removeTail() {
-    if(!this.head){
+    if (!this.head) {
       //Si no hay nada solo retorno
-      return
+      return;
     } else if (!this.head.next) {
       // Si hay solo un nodo en la lista
       this.head = null;
       this.tail = null;
-    }else{
-      let pre = this.head
+    } else {
+      let pre = this.head;
       let aux = this.head.next;
       while (aux!.next !== null) {
         pre = aux;
         aux = aux!.next;
       }
-      console.log("El elemento borrado es " + aux.value)
-      pre.next = null
-      this.tail = pre
-      console.log("El nuevo tail es este  " + this.tail.value)
+      console.log("El elemento borrado es " + aux.value);
+      pre.next = null;
+      this.tail = pre;
+      this.index--;
+      console.log("El nuevo tail es este  " + this.tail.value);
     }
   }
-  public removeHead() {}
-  public remove() {}
+  public removeHead() {
+    //Si no hay nada retornar
+    if (!this.head) return;
+    //Si hay un solo elemento
+    if (!this.head.next) {
+      this.head = null;
+      this.tail = null;
+    }
+    const aux = this.head;
+    console.log("Elemento borrado " + aux?.value);
+    this.head = this.head!.next;
+    console.log("El nuevo head es " + this.head?.value);
+    this.index--;
+    return aux;
+  }
+  public remove(node: string) {
+    if (!this.head) {
+      return;
+    }
+    //Si el nodo se encuentra al principio
+    if (this.head.value.toLocaleLowerCase() === node.toLocaleLowerCase()) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    let aux = this.head?.next;
+    let pre = this.head;
+
+    while (aux !== null) {
+      if (node.toLocaleLowerCase() === aux?.value.toLocaleLowerCase()) {
+        if (
+          aux.value.toLocaleLowerCase() === this.tail?.value.toLocaleLowerCase()
+        ) {
+          console.log("Entra en el if ")
+          pre!.next = aux.next;
+          this.tail = pre;
+         
+        }
+        pre!.next = aux.next;
+        
+      }
+      pre = aux!;
+      aux = aux?.next;
+    }
+    this.index--;
+    console.log("El valor de tail es " + this.tail?.value)
+  }
 
   public getLinkedlist() {
     let aux = this.head;
@@ -90,8 +136,12 @@ newLinkedlist.addToTheEnd("primer Nodo");
 newLinkedlist.addToTheEnd("segundo Nodo");
 newLinkedlist.addToTheEnd("tercer Nodo");
 newLinkedlist.addToTheEnd("cuarto Nodo");
-newLinkedlist.addToTop("quinto Nodo");
-newLinkedlist.removeTail();
-newLinkedlist.removeTail();
+newLinkedlist.addToTheEnd("sexto Nodo");
+newLinkedlist.addToTheEnd("septim0 Nodo");
+newLinkedlist.addToTheEnd("octavo Nodo");
+newLinkedlist.addToTheEnd("noveno Nodo");
+newLinkedlist.addToTheEnd("decimo Nodo");
+newLinkedlist.addToTop("cero Nodo");
+newLinkedlist.remove("DeCiMo NODO");
 console.log(newLinkedlist.getIndex());
 console.log(newLinkedlist.getLinkedlist());

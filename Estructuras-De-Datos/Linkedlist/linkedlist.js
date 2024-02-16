@@ -52,11 +52,54 @@ var LinkedList = /** @class */ (function () {
             console.log("El elemento borrado es " + aux.value);
             pre.next = null;
             this.tail = pre;
+            this.index--;
             console.log("El nuevo tail es este  " + this.tail.value);
         }
     };
-    LinkedList.prototype.removeHead = function () { };
-    LinkedList.prototype.remove = function () { };
+    LinkedList.prototype.removeHead = function () {
+        var _a;
+        //Si no hay nada retornar
+        if (!this.head)
+            return;
+        //Si hay un solo elemento
+        if (!this.head.next) {
+            this.head = null;
+            this.tail = null;
+        }
+        var aux = this.head;
+        console.log("Elemento borrado " + (aux === null || aux === void 0 ? void 0 : aux.value));
+        this.head = this.head.next;
+        console.log("El nuevo head es " + ((_a = this.head) === null || _a === void 0 ? void 0 : _a.value));
+        this.index--;
+        return aux;
+    };
+    LinkedList.prototype.remove = function (node) {
+        var _a, _b, _c;
+        if (!this.head) {
+            return;
+        }
+        //Si el nodo se encuentra al principio
+        if (this.head.value.toLocaleLowerCase() === node.toLocaleLowerCase()) {
+            this.head = null;
+            this.tail = null;
+        }
+        var aux = (_a = this.head) === null || _a === void 0 ? void 0 : _a.next;
+        var pre = this.head;
+        while (aux !== null) {
+            if (node.toLocaleLowerCase() === (aux === null || aux === void 0 ? void 0 : aux.value.toLocaleLowerCase())) {
+                if (aux.value.toLocaleLowerCase() === ((_b = this.tail) === null || _b === void 0 ? void 0 : _b.value.toLocaleLowerCase())) {
+                    console.log("Entra en el if ");
+                    pre.next = aux.next;
+                    this.tail = pre;
+                }
+                pre.next = aux.next;
+            }
+            pre = aux;
+            aux = aux === null || aux === void 0 ? void 0 : aux.next;
+        }
+        this.index--;
+        console.log("El valor de tail es " + ((_c = this.tail) === null || _c === void 0 ? void 0 : _c.value));
+    };
     LinkedList.prototype.getLinkedlist = function () {
         var aux = this.head;
         if (!aux) {
@@ -91,8 +134,12 @@ newLinkedlist.addToTheEnd("primer Nodo");
 newLinkedlist.addToTheEnd("segundo Nodo");
 newLinkedlist.addToTheEnd("tercer Nodo");
 newLinkedlist.addToTheEnd("cuarto Nodo");
-newLinkedlist.addToTop("quinto Nodo");
-newLinkedlist.removeTail();
-newLinkedlist.removeTail();
+newLinkedlist.addToTheEnd("sexto Nodo");
+newLinkedlist.addToTheEnd("septim0 Nodo");
+newLinkedlist.addToTheEnd("octavo Nodo");
+newLinkedlist.addToTheEnd("noveno Nodo");
+newLinkedlist.addToTheEnd("decimo Nodo");
+newLinkedlist.addToTop("cero Nodo");
+newLinkedlist.remove("DeCiMo NODO");
 console.log(newLinkedlist.getIndex());
 console.log(newLinkedlist.getLinkedlist());
