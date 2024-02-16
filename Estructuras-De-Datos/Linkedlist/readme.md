@@ -14,3 +14,10 @@ Es importante notar que los elementos no están almacenados de manera consecutiv
 - **Lista doblemente enlazada:** Lista enlazada en la que cada nodo contiene doble vía de enlace, los nodos apuntan tanto al elemento sucesor como al antecesor.
   
 - **Lista enlazada circular:** Semejante a la lista enlazada simple, con la distinción de que el último nodo apunta hacia el primer nodo de la lista.
+
+### Bibliografia
+
+- https://calcifer.org/documentos/librognome/glib-lists-queues.html
+- https://dev.to/ronnymedina/estructura-de-datos-linked-list-lista-enlazada-2h9
+- https://medium.com/@diego.coder/listas-enlazadas-en-javascript-18d991f1d6fd
+- https://es.wikipedia.org/wiki/Lista_enlazada
