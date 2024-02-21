@@ -58,8 +58,8 @@ class MaxHeap {
     }
   }
   
-  const newMaxHeap = new MinHeap();
+  const newMaxHeap = new MaxHeap();
   const arr2 = [48, 10, 25, 100, 123, 44, 155, 199, 200, 300];
-  newMaxHeap.heapSort(arr)
-  console.log(newHeap)
+  newMaxHeap.heapSort(arr2)
+  console.log(newMaxHeap)
   
