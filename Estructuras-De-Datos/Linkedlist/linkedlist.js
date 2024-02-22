@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LinkedList = void 0;
 var LinkedList = /** @class */ (function () {
     function LinkedList() {
         this.head = null;
@@ -120,8 +123,12 @@ var LinkedList = /** @class */ (function () {
     LinkedList.prototype.getIndex = function () {
         return this.index;
     };
+    LinkedList.prototype.getHead = function () {
+        return this.head;
+    };
     return LinkedList;
 }());
+exports.LinkedList = LinkedList;
 var Nodes = /** @class */ (function () {
     function Nodes(value, next) {
         this.value = value;

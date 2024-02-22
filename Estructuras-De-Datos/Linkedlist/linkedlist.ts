@@ -1,4 +1,4 @@
-class LinkedList {
+export class LinkedList {
   private head: Nodes | null;
   private tail: Nodes | null;
   private index: number;
@@ -120,6 +120,9 @@ class LinkedList {
   }
   public getIndex() {
     return this.index;
+  }
+  public getHead(){
+    return this.head
   }
 }
 class Nodes {
