@@ -1,4 +1,4 @@
-class LinkedList {
+export class LinkedList {
   private head: Nodes | null;
   private tail: Nodes | null;
   private index: number;
@@ -75,7 +75,7 @@ class LinkedList {
       return;
     }
     //Si el nodo se encuentra al principio
-    if (this.head.value.toLocaleLowerCase() === node.toLocaleLowerCase()) {
+    if (this.head.value.toLowerCase() === node.toLowerCase()) {
       this.head = null;
       this.tail = null;
     }
@@ -84,23 +84,21 @@ class LinkedList {
     let pre = this.head;
 
     while (aux !== null) {
-      if (node.toLocaleLowerCase() === aux?.value.toLocaleLowerCase()) {
+      if (node.toLowerCase() === aux?.value.toLowerCase()) {
         if (
-          aux.value.toLocaleLowerCase() === this.tail?.value.toLocaleLowerCase()
+          aux.value.toLowerCase() === this.tail?.value.toLowerCase()
         ) {
-          console.log("Entra en el if ")
+          console.log("Entra en el if ");
           pre!.next = aux.next;
           this.tail = pre;
-         
         }
         pre!.next = aux.next;
-        
       }
       pre = aux!;
       aux = aux?.next;
     }
     this.index--;
-    console.log("El valor de tail es " + this.tail?.value)
+    console.log("El valor de tail es " + this.tail?.value);
   }
 
   public getLinkedlist() {
@@ -120,6 +118,35 @@ class LinkedList {
   }
   public getIndex() {
     return this.index;
+  }
+  public getHead() {
+    return this.head;
+  }
+  public find(
+    value: string | undefined = undefined,
+    callback: ((value: string) => boolean) | undefined = undefined
+  ) {
+    if (!this.head) {
+      return null;
+    }
+    let current: Nodes | null = this.head;
+    if (callback) {
+      while (current) {
+        if (callback(current.value)) {
+          return current;
+        }
+        current = current.next;
+      }
+    } else if (value !== undefined) {
+      while (current) {
+        if (current.value.toLocaleLowerCase() === value.toLocaleLowerCase()) {
+          return current;
+        }
+        current = current.next;
+      }
+    }
+
+    return null;
   }
 }
 class Nodes {
